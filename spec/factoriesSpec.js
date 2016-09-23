@@ -40,5 +40,16 @@ describe('Factories', function () {
 
                 done(res);
             });
+    });        
+    it('creates a new factory with correct company type', function (done) {
+        request(app)
+            .post('/factories')
+            .send({ name: 'Test Factory'})
+            .end(function (err, res) {
+                if (err) return done.fail(res);
+                expect(res.body.company_type).toEqual("factory");
+
+                done(res);
+            });
     })
 });

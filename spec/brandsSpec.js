@@ -41,4 +41,15 @@ describe('Brands', function () {
                 done(res);
             });
     })
+    it('creates a new brand with correct company type', function (done) {
+    	request(app)
+    		.post('/brands')
+    		.send({ name: 'Test Brand'})
+    		.end(function (err, res) {
+    			if (err) return done.fail(res);
+    			expect(res.body.company_type).toEqual("brand");
+
+    			done(res);
+    		});
+    })
 });
