@@ -5,6 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var factoryRoutes = require('./routes/factories');
+var brandRoutes = require('./routes/brands');
 
 var app = express();
 
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/factories', factoryRoutes);
+app.use('/brands', brandRoutes);
 
 app.get('/', function(req, res) {
     res.send('Status 200');
