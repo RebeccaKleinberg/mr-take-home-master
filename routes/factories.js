@@ -4,8 +4,16 @@ var router = express.Router();
 
 /* GET a list of factories */
 router.get('/', function(req, res, next) {
-    factoryStore.list(function(err, factories) {
+    factoryStore.list(function(err, companies) {
         if (err) throw err;
+
+        factories = [];
+
+        for (var i = 0; i < companies.length; i++) {
+            if (companies[i].company_type === "Factory") {
+                factories.push(companies[i]);
+            }; 
+        };
 
         res.json(factories);
     });
