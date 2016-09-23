@@ -21,7 +21,11 @@ router.post('/', function(req, res, next) {
     if (!req.body) return res.sendStatus(400);
 
     var newFactory = {
-        name: req.body.name
+        name: req.body.name,
+        email: req.body.email,
+        phone_number: req.body.phone_number,
+        city: req.body.city,
+        state: req.body.state
     };
     factoryStore.add(newFactory, function(err) {
         if (err) throw err;
