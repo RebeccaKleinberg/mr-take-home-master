@@ -4,8 +4,16 @@ var router = express.Router();
 
 /* GET a list of brands */
 router.get('/', function(req, res, next) {
-    brandStore.list(function(err, brands) {
+    brandStore.list(function(err, companies) {
         if (err) throw err;
+
+        brands = [];
+
+        for (var i = 0; i < companies.length; i++) {
+            if (companies[i].company_type === "Brand") {
+                brands.push(companies[i]);
+            }; 
+        };
 
         res.json(brands);
     });
