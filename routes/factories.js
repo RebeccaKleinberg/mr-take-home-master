@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
         phone_number: req.body.phone_number,
         city: req.body.city,
         state: req.body.state,
-        company_type: "factory"
+        company_type: "Factory"
     };
     factoryStore.add(newFactory, function(err) {
         if (err) throw err;

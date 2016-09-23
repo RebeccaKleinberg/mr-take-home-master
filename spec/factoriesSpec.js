@@ -47,7 +47,7 @@ describe('Factories', function () {
             .send({ name: 'Test Factory'})
             .end(function (err, res) {
                 if (err) return done.fail(res);
-                expect(res.body.company_type).toEqual("factory");
+                expect(res.body.company_type).toEqual("Factory");
 
                 done(res);
             });

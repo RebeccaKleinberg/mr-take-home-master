@@ -47,7 +47,7 @@ describe('Brands', function () {
     		.send({ name: 'Test Brand'})
     		.end(function (err, res) {
     			if (err) return done.fail(res);
-    			expect(res.body.company_type).toEqual("brand");
+    			expect(res.body.company_type).toEqual("Brand");
 
     			done(res);
     		});

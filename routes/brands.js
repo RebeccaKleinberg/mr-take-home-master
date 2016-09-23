@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
         phone_number: req.body.phone_number,
         city: req.body.city,
         state: req.body.state,
-        company_type: "brand"
+        company_type: "Brand"
     };
     brandStore.add(newBrand, function(err) {
         if (err) throw err;
