@@ -20,6 +20,20 @@ describe('Brands', function () {
                 done(res);
             });
     });
+    it('does not get factories', function (done) {
+        request(app)
+            .get('/brands')
+            .expect(200)
+            .end(function(err, res) {
+                if (err) return done.fail(res);
+                var company_type = [];
+                for (var i = 0; i < res.body.length; i ++) {
+                     company_type.push(res.body[i].company_type);
+                }
+                expect(company_type).not.toContain("Factory");
+                done(res);
+            });
+    }); 
     it('gets a single brand', function (done) {
         request(app)
             .get('/brands/0a75d3f4-c8ff-47bb-84c3-a874007d1b4f')
