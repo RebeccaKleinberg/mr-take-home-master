@@ -25,6 +25,13 @@ router.get('/:id', function(req, res, next) {
         res.json(factory);
     });
 });
+router.delete('/:id', function(req, res, next) {
+    factoryStore.remove(req.params.id, function(err, factory) {
+        if (err) throw err;
+
+        res.send("Factory was deleted");
+    });
+});
 router.post('/', function(req, res, next) {
     if (!req.body) return res.sendStatus(400);
 
