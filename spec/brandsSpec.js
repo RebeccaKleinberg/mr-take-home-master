@@ -36,7 +36,7 @@ describe('Brands', function () {
     }); 
     it('gets a single brand', function (done) {
         request(app)
-            .get('/brands/0a75d3f4-c8ff-47bb-84c3-a874007d1b4f')
+            .get('/brands/a99344ee-c748-4c97-af4b-e051bc86a28f')
             .expect(200)
             .end(function(err, res) {
                 if (err) return done.fail(res);
@@ -65,5 +65,15 @@ describe('Brands', function () {
 
     			done(res);
     		});
-    })
+    });
+    it('deletes a brand', function (done) {
+        request(app)
+            .delete('/brands/a99344ee-c748-4c97-af4b-e051bc86a28f')
+            .expect(200)
+            .end(function (err, res) {
+                if (err) return done.fail(res);
+                expect(res.body).toEqual(jasmine.objectContaining({ }));
+                done(res);
+            });
+    });
 });

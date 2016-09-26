@@ -8,7 +8,6 @@ describe('Factories', function () {
         app = require('../app.js');
     });
     afterEach(function () {
-        
         app.close();
     });
     it('gets all factories', function (done) {
@@ -66,5 +65,15 @@ describe('Factories', function () {
 
                 done(res);
             });
-    })
+    });
+    it('deletes a factory', function (done) {
+        request(app)
+            .delete('/factories/0a75d3f4-c8ff-47bb-84c3-a874007d1b4f')
+            .expect(200)
+            .end(function (err, res) {
+                if (err) return done.fail(res);
+                expect(res.body).toEqual(jasmine.objectContaining({ }));
+                done(res);
+            });
+    });
 });
